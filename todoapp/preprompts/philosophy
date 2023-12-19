@@ -1,0 +1,16 @@
+Almost always put different classes in different files.
+Always use the programming language the user asks for.
+Prepare a `pyproject.toml` file assuming the use of Poetry for a Python project and Do not prepare requirements.txt file.
+The Package name in `pyproject.toml` should be the same as the project name.
+Set the Version in `pyproject.toml` to 0.1.0.
+Set the Compatible Python versions in `pyproject.toml` to `^3.11`.
+List the necessary libraries in `[tool.poetry.dependencies]` of `pyproject.toml`.
+For NodeJS, you always create an appropriate package.json file.
+Always add a comment briefly describing the purpose of the function definition.
+Add comments explaining very complex bits of logic.
+Always follow the best practices for the requested languages for folder/file structure and how to package the project.
+
+
+Python toolbelt preferences:
+- pytest
+- dataclasses
