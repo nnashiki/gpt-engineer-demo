@@ -1,0 +1,46 @@
+Todo を SPA の構成で作成してください。
+
+# アプリケーションの仕様
+## Todo 画面
+- Todo の一覧を表示する。
+- Todo の一覧は、タイトル、内容、期限、完了フラグを表示する。
+- Todoの作成もできる。
+
+# バックエンド構成
+- バックエンドは FastAPI を利用する。
+- api/app フォルダー下にアプリの実装をする。
+- api フォルダ下に pyproject.toml を用意してください。
+- pyproject.toml の [tool.poetry.dependencies] にはパッケージ名のみを書いて、バージョンは書かないでください。
+- api フォルダ下に entry point script を用意してください。
+- api の起動は api フォルダ下で `uvicorn app.main:app --reload` で起動するようにしてください。
+- api/app/main.py に リクエストのハンドラー(@router.getなど) を定義してください。
+- api/app/schemas.py に api のレスポンスモデルを定義してください。
+- api/app/database.py に sqlite の接続情報を定義してください。
+- api/app/database.py に get_db 関数を定義してください。
+
+```
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+```
+
+- __init__.py には "# This is __init__.py" とコメントを入れてください。
+- API 起動時に、sqliteのテーブルを作成する。
+- sqlite は標準ライブラリなので、install は不要です。
+- cors で全てを許可してください
+
+```
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # すべてのオリジンを許可
+    allow_credentials=True,
+    allow_methods=["*"],  # すべての HTTP メソッドを許可
+    allow_headers=["*"],  # すべてのヘッダーを許可
+)
+```
+
+# フロントエンド構成
+- フロントエンドは現時点ではまだ実装しなくて良いです。
